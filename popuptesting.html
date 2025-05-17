@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Numbers</title>
+
+  <style>
+    body {
+      width: 500px; /* specify your desired width */
+      height: 400px; /* specify your desired height */
+    }
+    .tab {
+      display: none;
+    }
+    .tab.active {
+      display: block;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      cursor: pointer;
+      background-color: #f1f1f1;
+    }
+    .tabs div {
+      padding: 5px;
+      text-align: center;
+      flex: 1;
+      border: 1px solid gray;
+    }
+    .tabs div.active {
+      border: 1px solid green;
+    }
+    #nylike, #njlike, #ctlike, #nclike, #sclike, #sharebtn {
+      display: none;
+    }
+    .centered {
+      text-align: center;
+	  *padding: 1px;
+	  *height: 10px;
+	  *border: 1px solid green;
+    }
+	
+	body.tab1 {
+	  background-image: url('bg1.jpg'); /* or 'images/bg1.jpg' if your images are in an images folder */
+	  background-size: cover;          /* ensures the image covers the full area */
+	  background-repeat: no-repeat;    /* optional, to avoid tiling */
+	}
+
+	body.tab2 {
+	  background-image: url('bg2.jpg');
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	}
+
+	body.tab3 {
+	  background-image: url('bg3.jpg');
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	}
+
+	body.tab4 {
+	  background-image: url('bg4.jpg');
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	}
+
+	body.tab5 {
+	  background-image: url('bg5.jpg');
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	}
+	
+	#tab1 h2 {
+    color: white;
+  }
+  
+	#tab2 h2 {
+    color: white;
+  }
+      .sharebutton-div {
+        *width: 200px;
+        height: 21px;
+        *background-color: lightblue;
+        *border: 2px solid #000;
+		*border: 1px solid #ccc;
+        *border-radius: 5px; /* This will round the corners */
+        padding: 2px;
+        *margin: 10px;
+		text-align: center;
+      }
+
+      .input-button-div {
+        *width: 200px;
+        height: 71px;
+        *background-color: lightblue;
+        *border: 2px solid #000;
+		*border: 1px solid #ccc;
+        *border-radius: 5px; /* This will round the corners */
+        padding: 2px;
+        *margin: 10px;
+		text-align: center;
+      }
+
+      #.banner-div {
+        *width: 200px;
+        height: 80px;
+        background-color: lightblue;
+        *border: 2px solid #000;
+		*border: 1px solid #ccc;
+        *border-radius: 5px; /* This will round the corners */
+        padding: 2px;
+        *margin: 10px;
+		text-align: center;
+      }
+
+      .aff-div {
+        *width: 200px;
+        height: 139px;
+        background-color: lightblue;
+        *border: 2px solid #000;
+		*border: 1px solid #ccc;
+        *border-radius: 5px; /* This will round the corners */
+        padding: 2px;
+        *margin: 10px;
+		text-align: center;
+      }
+	  
+      .flex-container {
+        display: flex;
+        /* You can add more properties to control alignment, spacing, etc. */
+        justify-content: space-around; /* or space-between, center, etc. */
+        *background-color: #f0f0f0;
+        *padding: 20px;
+      }
+      
+      .flex-div {
+        flex: 2;               /* Allows them to grow/shrink equally */
+        *margin: 1px;          /* Spacing between the divs */
+        *background-color: #fff;
+        *padding: 10px;
+        *border: 1px solid #ccc;
+		height: 50px;
+      
+  </style>
+</head>
+
+<body id="popupBody" class="tab1">
+  <div class="tabs">
+    <div class="tablinks active" data-tab="tab1"><h4>Numbers</h4></div>
+    <div class="tablinks" data-tab="tab2"><h4>Dice Rolls</h4></div>
+    <div class="tablinks" data-tab="tab3"><h4>Coin Flip</h4></div>
+	<div class="tablinks" data-tab="tab4"><h4>Pass Gen</h4></div>
+	<div class="tablinks" data-tab="tab5"><h4>Affiliates</h4></div>
+  </div>
+
+  <div id="tab1" class="tab active">
+    <div class="top_title_text" >
+		<h2><label style="color: white;">Quick Random Numbers</label></h2>
+	</div>
+	
+    <div class="centered">
+      <p style="border-width:1px; border-style:solid; border-color:blue; padding: 1em; background-color: white;" 
+         class="output" id="out1">0</p>
+    </div>
+	
+	<div class="flex-container">
+		<div class="flex-div">
+		  <div>
+		<form>
+		  <label for="stateLike" style="color: white;">Choose a state:</label>
+		  <select id="stateLike">
+			<option value="ct">CT</option>
+			<option value="pa" selected>PA</option>
+			<option value="ny">NY</option>
+			<option value="nj">NJ</option>
+			<option value="nc">NC</option>
+			<option value="sc">SC</option>
+		  </select>
+		</form>
+		</div>
+		</div>
+	<div class="flex-div">
+		<div class="centered">
+		  <button id="mgBtn">MG</button>
+		  <button id="pwBtn">PW</button>
+		</div>
+	</div>
+	<div class="flex-div"> 
+		<div class="container" id="palike">
+        <center>
+            <button class="rndomZD" data-params="2,9,9">P2</button>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndomZD" data-params="5,9,9">P5</button>
+            <button class="rndom" data-params="5,43,12">5QC</button>
+            <button class="rndom" data-params="6,49,12">M6</button>
+            <button class="rndom" data-params="5,60,12">C4L</button>
+            <button class="rndom" data-params="5,30,12">TH</button>
+        </center>
+		</div>
+
+    <div class="container" id="nylike">
+        <center>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndom" data-params="5,39,12">P5</button>
+            <button class="rndom" data-params="6,59,12">P6</button>
+            <button class="rndom" data-params="5,60,5">C4L</button>
+            <button class="rndom" data-params="10,80,12">P10</button>
+        </center>
+    </div>
+
+    <div class="container" id="njlike">
+        <center>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndom" data-params="5,45,12">P5</button>
+            <button class="rndom" data-params="6,46,12">P6</button>
+            <button class="rndom" data-params="5,60,5">C4L</button>
+            <button class="rndom" data-params="10,80,12">P10</button>
+        </center>
+    </div>
+
+    <div class="container" id="ctlike">
+        <center>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndom" data-params="5,48,12">LL5</button>
+            <button class="rndom" data-params="6,44,12">P6</button>
+            <button class="rndom" data-params="5,60,5">C4L</button>
+            <button class="rndom" data-params="10,80,12">P10</button>
+        </center>
+    </div>
+
+    <div class="container" id="nclike">
+        <center>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndom" data-params="5,48,18">LL5</button>
+            <button class="rndom" data-params="5,43,12">C5</button>
+            <button class="rndom" data-params="6,44,12">P6</button>
+        </center>
+    </div>
+
+    <div class="container" id="sclike">
+        <center>
+            <button class="rndomZD" data-params="3,9,9">P3</button>
+            <button class="rndomZD" data-params="4,9,9">P4</button>
+            <button class="rndom" data-params="5,38,12">P5</button>
+            <button class="rndom" data-params="1,15,12">CP</button>
+        </center>
+    </div></div>
+    </div>
+	
+	<div class="sharebutton-div">
+	<center><button id="sharebtn" style="display: none;">Share</button></center>
+	</div>
+	
+	<div class="centered" style="margin-top: 1em;">
+    <p style="background-color: white; color: black; padding: 0.5em; border: 1px solid blue;">
+      <label style="color: black;">Check us out at </label>
+      <a href="https://www.myrnguniverse.com" target="_blank" rel="noopener noreferrer">
+        www.myrnguniverse.com
+      </a>
+    </p>
+	</div>
+	<div class="banner-div"></div>
+  </div>
+
+  <div id="tab2" class="tab">
+    <div class="top_title_text">    
+	<h2><label style="color: white;">Dice Rolls</label></h2>
+	</div>
+	
+	<div class="centered">
+      <p style="border: 1px solid blue; padding: 1em; background-color: white;" class="output" id="yourRollOut">0</p>
+    </div>
+	
+    <div class="input-button-div">
+      <!-- We keep inline onclick. Now they will work if getRoll() is global. -->
+      <button id="btnR04">04</button>
+      <button id="btnR06">06</button>
+      <button id="btnR08">08</button>
+      <button id="btnR10">10</button>
+      <button id="btnR12">12</button>
+      <button id="btnR20">20</button>
+      <button id="btnR100">100</button>
+    </div>
+	  <div class="centered" style="margin-top: 1em;">
+    <p style="background-color: white; color: black; padding: 0.5em; border: 1px solid blue;">
+      <label style="color: black;">Check us out at </label>
+      <a href="https://www.myrnguniverse.com" target="_blank" rel="noopener noreferrer">
+        www.myrnguniverse.com
+      </a>
+    </p>
+  </div>
+	<div class="banner-div"></div>
+  </div>
+
+  <div id="tab3" class="tab">
+    <div class="top_title_text">
+    <h2><label style="color: white;">Coin Flip</label></h2>
+	</div>
+	
+    <div class="centered">
+      <p style="border: 1px solid blue; padding: 1em; background-color: white;" class="output" id="yourFlipOut">Clip Flip</p>
+    </div>
+	
+	<div class="input-button-div">
+	  <!-- inline onclick. getFlip() must be global. -->
+	  <button id="btnFlip">FLIP</button>
+	</div>
+	
+	<div class="centered" style="margin-top: 1em;">
+    <p style="background-color: white; color: black; padding: 0.5em; border: 1px solid blue;">
+      <label style="color: black;">Check us out at </label>
+      <a href="https://www.myrnguniverse.com" target="_blank" rel="noopener noreferrer">
+        www.myrnguniverse.com
+      </a>
+    </p>
+	</div>
+	<div class="banner-div"></div>
+  </div>
+
+  <div id="tab4" class="tab">
+      <div class="top_title_text">
+	  <h2><label style="color: white;">Password Generator</label></h2>
+	  </div>
+
+    <div class="centered">
+     <p style="border: 1px solid blue; padding: 1em; background-color: white;" class="output" id="passout1">0</p>
+    </div>
+
+	<div class="input-button-div">
+	  <button id="passgen1">Generate Password</button>
+	</div>
+	
+	<div class="centered" style="margin-top: 1em;">
+    <p style="background-color: white; color: black; padding: 0.5em; border: 1px solid blue;">
+      <label style="color: black;">Check us out at </label>
+      <a href="https://www.myrnguniverse.com" target="_blank" rel="noopener noreferrer">
+        www.myrnguniverse.com
+      </a>
+    </p>
+	</div>
+	<div class="banner-div"></div>  
+  </div>
+  <div id="tab5" class="tab">
+      <div class="top_title_text">
+	  <h2><label style="color: white;">Affiliates</label></h2>
+	  </div>
+	  
+    <div class="aff-div">
+	<h3>Coming Soon!</h3>
+	</div>
+	
+	<div class="centered" style="margin-top: 1em;">
+    <p style="background-color: white; color: black; padding: 0.5em; border: 1px solid blue;">
+      <label style="color: black;">Check us out at </label>
+      <a href="https://www.myrnguniverse.com" target="_blank" rel="noopener noreferrer">
+        www.myrnguniverse.com
+      </a>
+    </p>
+	</div>
+ 	<div class="banner-div"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

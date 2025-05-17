@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Myrnguniverse",
+  "version": "1.0",
+  "description": "The Myrnguniverse random number generator +",
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  /* Optional top-level icons for the store listing and extension manager */
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "bg1.jpg",
+        "bg2.jpg",
+        "bg3.jpg",
+        "bg4.jpg",
+        "bg5.jpg"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
